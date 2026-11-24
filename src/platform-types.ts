@@ -15,7 +15,7 @@ export interface ConsultationRecord {
 export const defaultProfile: VoyantProfile = {
   name: 'Madame Luna',
   description: 'Une seule voyante vous accompagne pour tous les services Consultation Orialune.',
-  email: 'contacts@orialune.space',
+  email: 'natachboyer88@gmail.com',
   hours: '',
 };
 

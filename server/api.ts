@@ -144,9 +144,10 @@ export function createApi(store: Storage, options: { password: () => string | un
         const profile = await store.get<VoyantProfile>('profile') ?? defaultProfile;
         const normalizeBrand = (text: string) =>
           text.replace(/(?<![@.])\b(?:Consultation )?Or[iy]alune\b(?!@|\.\w)/gi, brand.name);
+        const legacyContactEmails = ['contacts@orialune.space', 'kartersteven215@gmail.com'];
         return json({
           ...profile,
-          email: profile.email === 'kartersteven215@gmail.com' ? defaultProfile.email : profile.email,
+          email: legacyContactEmails.includes(profile.email.trim().toLowerCase()) ? defaultProfile.email : profile.email,
           name: normalizeBrand(profile.name),
           description: normalizeBrand(profile.description),
         });
